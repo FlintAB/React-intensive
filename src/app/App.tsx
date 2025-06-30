@@ -1,9 +1,5 @@
-function App() {
+import { MainLayout } from "../shared/layouts/MainLayout"
 
-  return (
-    <>
-    </>
-  )
+export const App = () => {
+  return <MainLayout/>
 }
-
-export default App
