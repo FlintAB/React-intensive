@@ -1,4 +1,4 @@
-import type React from "react"
+import type { FC } from "react";
 
 type PostCardProps = {
    title: string;
@@ -6,7 +6,7 @@ type PostCardProps = {
    id: number;
 }
 
-export const PostCard: React.FC<PostCardProps> = ({title, body, id}) => {
+export const PostCard: FC<PostCardProps> = ({title, body, id}) => {
    return (
       <div>
          <h3>{title}</h3>

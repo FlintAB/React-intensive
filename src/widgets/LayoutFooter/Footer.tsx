@@ -1,5 +1,5 @@
-import type React from "react"
+import type { FC } from "react"
 
-export const LayoutFooter: React.FC = () => {
+export const LayoutFooter: FC = () => {
    return <footer>Footer</footer>
 }

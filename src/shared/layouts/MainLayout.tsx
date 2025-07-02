@@ -1,13 +1,17 @@
+import type { FC, ReactNode } from "react"
 import { LayoutFooter } from "../../widgets/LayoutFooter/Footer"
 import { LayoutHeader } from "../../widgets/LayoutHeader/Header"
-import { PostList } from "../../widgets/PostList/PostList"
 
-export const MainLayout: React.FC = () => {
+type MainLayoutProps = {
+   children?: ReactNode;
+}
+
+export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
    return (
    <>
       <LayoutHeader/>
       <main>
-         <PostList/>
+      {children}
       </main>
       <LayoutFooter/>
    </>

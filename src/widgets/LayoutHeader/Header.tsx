@@ -1,5 +1,5 @@
-import type React from "react"
+import type { FC } from "react"
 
-export const LayoutHeader: React.FC = () => {
+export const LayoutHeader: FC = () => {
    return <header>Header</header>
 }

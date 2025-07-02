@@ -1,5 +1,5 @@
-import type React from "react";
 import { PostCard } from "../../entities/post/ui/PostCard";
+import type { FC } from "react";
 
 const mockPosts = [
    { id: 1, title: "Post 1", body: "This is post 1" },
@@ -7,7 +7,7 @@ const mockPosts = [
    { id: 3, title: "Post 3", body: "This is post 3" },
 ];
 
-export const PostList: React.FC = () => {
+export const PostList: FC = () => {
    return (
       <ul>
          {mockPosts.map((post) => (
