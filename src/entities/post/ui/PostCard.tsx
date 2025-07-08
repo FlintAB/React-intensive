@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-type PostCardProps = {
+export type PostCardProps = {
    title: string;
    body: string;
    id: number;
