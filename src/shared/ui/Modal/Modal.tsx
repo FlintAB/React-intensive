@@ -1,6 +1,9 @@
 import { useEffect, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.css';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 
 type ModalProps = {
    isOpen: boolean;
@@ -28,11 +31,15 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
    };
 
    return createPortal(
-      <div className={styles.overlay}>
-         <div className={styles.content}>
-            {children}
-         </div>
-      </div>,
-      portalRoot,
+         <div className={styles.overlay}>
+            <div className={styles.content}>
+               {children}
+            </div>
+         </div>,
+      portalRoot
    );
 };
+
+Modal.Header = Header;
+Modal.Body = Body;
+Modal.Footer = Footer;

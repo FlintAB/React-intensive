@@ -14,9 +14,17 @@ export const LayoutHeader: FC = () => {
          </Button>
 
          <Modal isOpen={isModalOpen} onClose={toggleModal}>
-            <h2>О проекте</h2>
-            <p>{`Modal Status: ${isModalOpen}`}</p>
-            <Button onClick={toggleModal}>Закрыть</Button>
+            <Modal.Header>
+               <h2>О проекте</h2>
+            </Modal.Header>
+
+            <Modal.Body>
+               <p>{`Modal Status: ${isModalOpen}`}</p>
+            </Modal.Body>
+
+            <Modal.Footer>
+               <Button onClick={toggleModal}>Закрыть</Button>
+            </Modal.Footer>
          </Modal>
       </header>
    )
