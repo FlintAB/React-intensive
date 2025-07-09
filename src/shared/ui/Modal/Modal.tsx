@@ -1,9 +1,14 @@
 import { useEffect, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.css';
+<<<<<<< HEAD
 import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
+import { useTheme } from '../../lib/theme/useTheme';
+=======
+import { useTheme } from '../../lib/theme/useTheme';
+>>>>>>> dec3814 (fix(theme)/Code refactoring)
 
 type ModalProps = {
    isOpen: boolean;
@@ -12,6 +17,8 @@ type ModalProps = {
 }
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+   const { theme } = useTheme();
+
    useEffect(() => {
       const handleEscape = (e: KeyboardEvent) => {
          if (e.key === 'Escape') onClose();
@@ -31,12 +38,21 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
    };
 
    return createPortal(
+<<<<<<< HEAD
          <div className={styles.overlay}>
             <div className={styles.content}>
                {children}
             </div>
          </div>,
       portalRoot
+=======
+      <div className={styles.overlay} data-theme={theme}>
+         <div className={styles.content}>
+            {children}
+         </div>
+      </div>,
+      portalRoot,
+>>>>>>> dec3814 (fix(theme)/Code refactoring)
    );
 };
 

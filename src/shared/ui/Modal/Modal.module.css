@@ -7,6 +7,7 @@
    display: grid;
    place-items: center;
    z-index: 1000;
+   background: rgba(0, 0, 0, 0.5);
 }
 
 .content {
@@ -16,4 +17,10 @@
    max-height: 80vh;
    overflow-y: auto;
    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+<<<<<<< HEAD
+=======
+   color: var(--text-primary);
+   background-color: var(--bg-secondary);
+   border: 1px solid var(--accent-color);
+>>>>>>> dec3814 (fix(theme)/Code refactoring)
 }
