@@ -1,6 +1,7 @@
 import { useEffect, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.css';
+import { useTheme } from '../../lib/theme/useTheme';
 
 type ModalProps = {
    isOpen: boolean;
@@ -9,6 +10,8 @@ type ModalProps = {
 }
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+   const { theme } = useTheme();
+
    useEffect(() => {
       const handleEscape = (e: KeyboardEvent) => {
          if (e.key === 'Escape') onClose();
@@ -28,7 +31,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
    };
 
    return createPortal(
-      <div className={styles.overlay}>
+      <div className={styles.overlay} data-theme={theme}>
          <div className={styles.content}>
             {children}
          </div>

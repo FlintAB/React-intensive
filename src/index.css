@@ -1,23 +1,31 @@
 :root {
-   --bg-primary: #ffffff;
-   --text-primary: #222222;
-   --accent-color: #4361ee;
-
    --spacing-xs: 4px;
    --spacing-sm: 8px;
    --spacing-md: 16px;
 }
 
+[data-theme="light"] {
+   --bg-primary: #ffffff;
+   --bg-secondary: #b4b4b4;
+   --text-primary: #222222;
+   --accent-color: #d1bc32;
+}
+
 [data-theme="dark"] {
    --bg-primary: #121212;
+   --bg-secondary: #2a2a2a;
    --text-primary: #f5f5f5;
-   --accent-color: #4cc9f0;
+   --accent-color: #4c75f0;
+}
+
+body {
+   background: var(--bg-primary);
+   color: var(--text-primary);
 }
 
 header {
    padding: var(--spacing-md);
    background: var(--accent-color);
-   color: white;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -31,4 +39,5 @@ main {
 footer {
    padding: var(--spacing-md);
    text-align: center;
+   background: var(--bg-secondary);
 }
