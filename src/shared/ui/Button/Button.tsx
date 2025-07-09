@@ -6,11 +6,13 @@ type ButtonProps = {
 }
 
 export const Button = ({ onClick, children }: ButtonProps) => {
+   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
+      onClick();
+   };
+
    return (
-      <button onClick={(e) => {
-         e.stopPropagation();
-         onClick();
-      }}>
+      <button onClick={handleClick}>
          {children}
       </button>
    )
