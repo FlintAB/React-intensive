@@ -2,6 +2,7 @@ import { useReducer, type FC } from "react"
 import { ThemeSwitcher } from "../../../features/ThemeSwitcher/ui/ThemeSwitcher";
 import { Button } from "../../../shared/ui/Button/Button";
 import { Modal } from "../../../shared/ui/Modal/Modal";
+import { UserTabs } from "../../UserTabs/UserTabs";
 
 export const LayoutHeader: FC = () => {
    const [isModalOpen, toggleModal] = useReducer(state => !state, false);
@@ -9,6 +10,7 @@ export const LayoutHeader: FC = () => {
    return (
       <header>
          <ThemeSwitcher/>
+         <UserTabs/>
          <Button onClick={toggleModal}>
             О проекте
          </Button>

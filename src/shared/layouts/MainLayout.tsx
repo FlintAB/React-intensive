@@ -1,17 +1,16 @@
-import type { FC, ReactNode } from "react"
+import type { FC } from "react"
 import { LayoutFooter } from "../../widgets/LayoutFooter/ui/Footer"
 import { LayoutHeader } from "../../widgets/LayoutHeader/ui/Header"
+import { useOutlet } from "react-router-dom";
 
-type MainLayoutProps = {
-   children?: ReactNode;
-}
+export const MainLayout: FC = () => {
+   const outlet = useOutlet();
 
-export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
    return (
    <>
       <LayoutHeader/>
       <main>
-      {children}
+         {outlet || <h2>Главная страница</h2>}
       </main>
       <LayoutFooter/>
    </>
