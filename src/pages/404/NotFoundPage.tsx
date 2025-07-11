@@ -1,0 +1,3 @@
+export const NotFoundPage = () => {
+   return <h2>404 - Страница не найдена</h2>;
+};
