@@ -1,20 +1,27 @@
-import { PostCard } from "../../entities/post/ui/PostCard";
 import type { FC } from "react";
+import { PostCard, type PostCardProps } from "../../entities/post/ui/PostCard";
+import { withLoading } from "../../shared/lib/hoc/withLoading";
+import { CommentList } from "../CommentList/ui/CommentList";
 
-const mockPosts = [
-   { id: 1, title: "Post 1", body: "This is post 1" },
-   { id: 2, title: "Post 2", body: "This is post 2" },
-   { id: 3, title: "Post 3", body: "This is post 3" },
-];
+type PostListProps = {
+   posts: PostCardProps[];
+   isLoading?: boolean;
+}
 
-export const PostList: FC = () => {
+const PostListComponent: FC<PostListProps> = ({ posts }) => {
    return (
       <ul>
-         {mockPosts.map((post) => (
+         {posts.map((post) => (
          <li key={post.id}>
             <PostCard {...post}/>
+            <CommentList comments={[{
+               text: 'Пример комментария',
+               id: ""
+            }]}/>
          </li>
          ))}
       </ul>
-   )
-}
+   );
+};
+
+export const PostList = withLoading(PostListComponent);
