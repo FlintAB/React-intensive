@@ -2,7 +2,7 @@ import { useReducer, type FC } from "react"
 import { ThemeSwitcher } from "../../../features/ThemeSwitcher/ui/ThemeSwitcher";
 import { Button } from "../../../shared/ui/Button/Button";
 import { Modal } from "../../../shared/ui/Modal/Modal";
-import { UserTabs } from "../../UserTabs/UserTabs";
+import { Link } from "react-router-dom";
 
 export const LayoutHeader: FC = () => {
    const [isModalOpen, toggleModal] = useReducer(state => !state, false);
@@ -10,7 +10,11 @@ export const LayoutHeader: FC = () => {
    return (
       <header>
          <ThemeSwitcher/>
-         <UserTabs/>
+
+         <Link to='/posts'>
+         <h2>Все посты</h2>
+         </Link>
+
          <Button onClick={toggleModal}>
             О проекте
          </Button>

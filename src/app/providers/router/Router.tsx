@@ -7,6 +7,7 @@ import { UserAlbumsPage } from "../../../pages/Users/UserAlbumsPage/UserAlbumsPa
 import { UserTodosPage } from "../../../pages/Users/UserTodosPage/UserTodosPage";
 import { UserPostsPage } from "../../../pages/Users/UserPostsPage/UserPostsPage";
 import { NotFoundPage } from "../../../pages/404/NotFoundPage";
+import { UserBasePage } from "../../../pages/Users/UserBasePage/UserBasePage";
 
 export const router = createBrowserRouter(createRoutesFromElements(
    
@@ -23,10 +24,11 @@ export const router = createBrowserRouter(createRoutesFromElements(
       </Route>
 
 
-      <Route path="users/:id">
+      <Route path="users/:id" element={<UserBasePage />}>
+         <Route index element={<UserPostsPage/>} />
+         <Route path="posts" element={<UserPostsPage/>} />
          <Route path="albums" element={<UserAlbumsPage/>} />
          <Route path="todos" element={<UserTodosPage/>} />
-         <Route path="posts" element={<UserPostsPage/>} />
       </Route>
 
 

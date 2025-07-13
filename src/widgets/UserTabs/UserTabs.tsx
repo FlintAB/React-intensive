@@ -12,24 +12,17 @@ export const UserTabs = () => {
 
    return (
       <nav className={styles.tabs}>
-
-         <NavLink to='/posts' className={({ isActive }) => 
-               isActive ? `${styles.link} ${styles.active}` : styles.link
-            }>Все посты
-         </NavLink>
-
          {tabs.map((tab) => (
-         <NavLink
-            key={tab.path}
-            to={`/users/${id}/${tab.path}`}
-            className={({ isActive }) => 
-               isActive ? `${styles.link} ${styles.active}` : styles.link
-            }
-            end
-         >
-            {tab.label}
-         </NavLink>
-
+            <NavLink
+               key={tab.path}
+               to={`/users/${id}/${tab.path}`}
+               className={({ isActive }) => 
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
+               }
+               end
+            >
+               {tab.label}
+            </NavLink>
          ))}
       </nav>
    );
