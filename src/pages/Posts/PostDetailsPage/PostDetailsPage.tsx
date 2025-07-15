@@ -1,9 +1,10 @@
 import { Link, useParams } from 'react-router-dom';
-import { useMockPosts } from '../../../features/PostList/model/hooks/usePosts';
+import { useMockData } from '../../../features/PostList/model/hooks/usePosts';
+
 
 export const PostDetailsPage = () => {
    const { id } = useParams();
-   const { getPostById, isLoading, error } = useMockPosts();
+   const { getPostById, isLoading, error } = useMockData();
    const post = id ? getPostById(id) : null;
 
    if (isLoading) return <div>Загрузка...</div>;

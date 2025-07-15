@@ -1,44 +1,63 @@
-import { useEffect, useState } from 'react';
-import { mockPosts } from '../../../../widgets/PostList/model/MockPosts';
-import type { Post } from '../../../../widgets/PostList/model/MockPosts';
+import { useState, useEffect } from "react";
+import { mockPosts, mockAlbums, mockPhotos, mockTodos } from "../../../../shared/constants/mockData";
 
-
-
-
-export const useMockPosts = () => {
-   const [posts, setPosts] = useState<Post[]>([]);
-   const [isLoading, setIsLoading] = useState(true);
+export const useMockData = () => {
+   const [isLoading, setIsLoading] = useState<boolean>(true);
    const [error, setError] = useState<string | null>(null);
 
    useEffect(() => {
-      const fetchPosts = async () => {
+      const loadData = async () => {
          try {
-         setIsLoading(true);
          await new Promise(resolve => setTimeout(resolve, 500));
-         setPosts(mockPosts);
          } catch (err) {
-         setError(`Ошибка при загрузке постов: ${err}`);
+         setError(`Ошибка загрузки данных: ${err}`);
          } finally {
          setIsLoading(false);
          }
       };
 
-      fetchPosts();
+      loadData();
    }, []);
 
-   const getPostById = (id: string) => {
-      return posts.find(post => post.id.toString() === id);
-   };
+   const getPostById = (id: string) => mockPosts.find(post => post.id.toString() === id);
+   const getPostsByAuthor = (authorId: string) => 
+      mockPosts.filter(post => post.author.toString() === authorId);
 
-   const getPostsByAuthor = (authorId: string) => {
-      return posts.filter(post => post.author.toString() === authorId);
-   };
+   const getAlbumById = (id: string) => mockAlbums.find(album => album.id.toString() === id);
+   const getAlbumsByAuthor = (authorId: string) => 
+      mockAlbums.filter(album => album.author.toString() === authorId);
+   const getPhotosByAlbum = (albumId: string) => 
+      mockPhotos.filter(photo => photo.albumId.toString() === albumId);
+
+   const getAlbumWithPhotos = (albumId: string) => {
+      const album = getAlbumById(albumId);
+      if (!album) return null;
+
+      const photos = getPhotosByAlbum(albumId);
+      return {
+         ...album,
+         photos
+      };
+};
+
+   const getTodoById = (id: string) => mockTodos.find(todo => todo.id.toString() === id);
+   const getTodosByAuthor = (authorId: string) => 
+      mockTodos.filter(todo => todo.author.toString() === authorId);
 
    return {
-      posts,
       isLoading,
       error,
+
       getPostById,
-      getPostsByAuthor
+      getPostsByAuthor,
+
+      getAlbumById,
+      getAlbumsByAuthor,
+      getPhotosByAlbum,
+
+      getAlbumWithPhotos,
+
+      getTodoById,
+      getTodosByAuthor,
    };
 };

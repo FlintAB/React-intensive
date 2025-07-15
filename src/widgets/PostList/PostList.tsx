@@ -1,7 +1,8 @@
 import type { FC } from "react";
 import { PostCard } from "../../entities/post/ui/PostCard";
 import { withLoading } from "../../shared/lib/hoc/withLoading";
-import type { Post } from "./model/MockPosts";
+import type { Post } from "../../shared/types/post";
+
 
 type PostListProps = {
    posts: Post[];

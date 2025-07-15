@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { PostCard } from '../../../entities/post/ui/PostCard';
-import { useMockPosts } from '../../../features/PostList/model/hooks/usePosts';
+import { useMockData } from '../../../features/PostList/model/hooks/usePosts';
+
 
 export const UserPostsPage = () => {
    const { id } = useParams<{ id: string }>();
 
-   const { getPostsByAuthor, isLoading, error } = useMockPosts();
+   const { getPostsByAuthor, isLoading, error } = useMockData();
    const userPosts = id ? getPostsByAuthor(id) : [];
 
    if (isLoading) return <div>Загрузка...</div>;
@@ -18,8 +19,8 @@ export const UserPostsPage = () => {
          <ol>
          {userPosts.length > 0 ? (
          userPosts.map(post => (
-            <li>
-               <PostCard key={post.id}{...post} />
+            <li key={post.id}>
+               <PostCard {...post} />
             </li>
          ))
          ) : (

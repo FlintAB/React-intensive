@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PostLengthFilter } from "../../../features/PostLengthFilter/ui/PostLengthFilter";
-import { mockPosts } from "../../../widgets/PostList/model/MockPosts";
 import { PostList } from "../../../widgets/PostList/PostList";
+import { mockPosts } from "../../../shared/constants/mockData";
 
 
 export const PostsPage = () => {

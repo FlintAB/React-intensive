@@ -2,7 +2,8 @@ import type { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./PostCard.module.css";
 import { CommentList } from "../../../widgets/CommentList/ui/CommentList";
-import type { Post } from "../../../widgets/PostList/model/MockPosts";
+import type { Post } from "../../../shared/types/post";
+
 
 export const PostCard: FC<Post> = ({title, body, id, author}) => {
    return (
