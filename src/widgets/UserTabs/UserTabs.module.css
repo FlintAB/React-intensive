@@ -1,0 +1,17 @@
+.tabs {
+   display: flex;
+   gap: 1rem;
+}
+
+.link {
+   padding: 0.5rem 1rem;
+   color: var(--text-primary);
+   text-decoration: none;
+   border-radius: 4px;
+}
+
+.active {
+   color: var(--accent-color);
+   background: var(--bg-primary);
+   font-weight: 500;
+}

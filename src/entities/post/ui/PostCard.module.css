@@ -1,0 +1,41 @@
+.layout {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   padding: 20px;
+   border: 1px solid var(--accent-color);
+   border-radius: 8px;
+   max-width: 600px;
+   margin: 0 auto;
+   margin-bottom: 20px;
+   text-align: center;
+   background-color: var(--bg-secondary);
+}
+
+.layout h2 {
+   margin: 0;
+   font-size: 1.2rem;
+}
+
+.layout h3 {
+   margin: 0;
+}
+
+.layout a {
+   text-decoration: none;
+   transition: color 0.2s ease;
+}
+
+.layout a:hover {
+   color: #2980b9;
+   text-decoration: underline;
+}
+
+.layout p {
+   margin: 8px 0;
+   line-height: 1.5;
+}
+
+.layout small {
+   font-size: 0.9rem;
+}
