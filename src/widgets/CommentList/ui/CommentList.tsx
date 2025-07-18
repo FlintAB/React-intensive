@@ -1,34 +1,37 @@
-import { useState, useCallback, memo } from 'react';
-import { Button } from '../../../shared/ui/Button/Button';
+import { useState, memo } from 'react';
 import styles from './CommentList.module.css';
+import { Button } from '../../../shared/ui/Button/Button';
+import { useGetCommentsByPostQuery } from '../../../entities/comment/api/commentApi';
 
-type Comment = {
-   id: string;
-   text: string;
-}
+export const CommentList = memo(({ postId }: { postId: number }) => {
+   const [showComments, setShowComments] = useState(false);
+   const { data: comments, isLoading, error } = useGetCommentsByPostQuery(postId);
 
-export const CommentList = memo(({ comments }: { comments: Comment[] }) => {
-   const [expandedComments, setExpandedComments] = useState<Record<string, boolean>>({});
-
-   const toggleComment = useCallback((commentId: string) => {
-      setExpandedComments(prev => ({
-         ...prev,
-         [commentId]: !prev[commentId]
-      }));
-   }, []);
+   const toggleComments = () => setShowComments(prev => !prev);
 
    return (
-      <div>
-         {comments.map(comment => (
-         <div key={comment.id}>
-            <Button onClick={() => toggleComment(comment.id)}>
-               {expandedComments[comment.id] ? 'Скрыть комментарии' : 'Показать комментарии'}
-            </Button>
-            {expandedComments[comment.id] && (
-               <div className={styles.content}>{comment.text}</div>
+      <div className={styles.container}>
+         <Button onClick={toggleComments}>
+         {showComments ? 'Скрыть комментарии' : 'Показать комментарии'}
+         </Button>
+
+      {showComments && (
+         <div className={styles.comments}>
+            {isLoading ? (
+               <div>Загрузка комментариев...</div>
+            ) : error ? (
+               <div>Ошибка загрузки</div>
+            ) : (
+            comments?.map(comment => (
+               <div key={comment.id} className={styles.comment}>
+                  <h4 className={styles.author}>{comment.name}</h4>
+                  <p className={styles.text}>{comment.body}</p>
+                  <small className={styles.email}>{comment.email}</small>
+               </div>
+               ))
             )}
          </div>
-         ))}
+         )}
       </div>
    );
 });
