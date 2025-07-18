@@ -1,31 +1,21 @@
-import { Link, useParams } from 'react-router-dom';
-import { useMockData } from '../../../features/PostList/model/hooks/usePosts';
-
+import { useParams } from 'react-router-dom';
+import { useGetPostByIdQuery } from '../../../entities/post/api/postApi';
+import { PostCard } from '../../../entities/post/ui/PostCard';
 
 export const PostDetailsPage = () => {
    const { id } = useParams();
-   const { getPostById, isLoading, error } = useMockData();
-   const post = id ? getPostById(id) : null;
+   const {  data: post, isLoading,  error } = useGetPostByIdQuery(Number(id));
 
    if (isLoading) return <div>Загрузка...</div>;
-   if (error) return <div>{error}</div>;
+   if (error) return <div>Ошибка загрузки поста</div>;
    if (!post) return <div>Пост не найден</div>;
    
    return (
       <>
       <h2>Подробности поста #{id}</h2>
-      
-      <ul>
-         <li>ID поста:{post.id}</li>
-         <li>Заголовок: {post.title}</li>
-         <li>Текст: {post.body}</li>
-         <li>Автор: {[post.author]}</li>
-         <li>
-            <Link to={`/users/${post.author}/posts`}>
-               <h3>Страница автора</h3>
-            </Link>
-         </li>
-      </ul>
+
+      <PostCard {...post}/>
+
       </>
    );
 };

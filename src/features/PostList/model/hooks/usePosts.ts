@@ -20,12 +20,12 @@ export const useMockData = () => {
    }, []);
 
    const getPostById = (id: string) => mockPosts.find(post => post.id.toString() === id);
-   const getPostsByAuthor = (authorId: string) => 
-      mockPosts.filter(post => post.author.toString() === authorId);
+   const getPostsByAuthor = (userId: string) => 
+      mockPosts.filter(post => post.userId.toString() === userId);
 
    const getAlbumById = (id: string) => mockAlbums.find(album => album.id.toString() === id);
-   const getAlbumsByAuthor = (authorId: string) => 
-      mockAlbums.filter(album => album.author.toString() === authorId);
+   const getAlbumsByAuthor = (userId: string) => 
+      mockAlbums.filter(album => album.userId.toString() === userId);
    const getPhotosByAlbum = (albumId: string) => 
       mockPhotos.filter(photo => photo.albumId.toString() === albumId);
 
@@ -41,8 +41,8 @@ export const useMockData = () => {
 };
 
    const getTodoById = (id: string) => mockTodos.find(todo => todo.id.toString() === id);
-   const getTodosByAuthor = (authorId: string) => 
-      mockTodos.filter(todo => todo.author.toString() === authorId);
+   const getTodosByAuthor = (userId: string) => 
+      mockTodos.filter(todo => todo.userId.toString() === userId);
 
    return {
       isLoading,

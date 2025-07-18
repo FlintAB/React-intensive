@@ -3,15 +3,15 @@ import type { Post } from "../types/post";
 import type { Todo } from "../types/todo";
 
 export const mockPosts: Post[] = [
-   { id: 1, title: "Post 1", body: "Content 1", author: 1 },
-   { id: 2, title: "Post 2", body: "Content 2", author: 1 },
-   { id: 3, title: "Post 3", body: "Content 3", author: 2 },
+   { id: 1, title: "Заголовок", body: "Content 1", userId: 1 },
+   { id: 2, title: "Заголовок", body: "Content 2", userId: 1 },
+   { id: 3, title: "Заголовок", body: "Content 3", userId: 2 },
 ];
 
 export const mockAlbums: Album[] = [
-   { id: 1, title: "Album 1", author: 1 },
-   { id: 2, title: "Album 2", author: 1 },
-   { id: 3, title: "Album 3", author: 2 },
+   { id: 1, title: "Album 1", userId: 1 },
+   { id: 2, title: "Album 2", userId: 1 },
+   { id: 3, title: "Album 3", userId: 2 },
 ];
 
 export const mockPhotos: AlbumPhoto[] = [
@@ -21,7 +21,7 @@ export const mockPhotos: AlbumPhoto[] = [
 ];
 
 export const mockTodos: Todo[] = [
-   { id: 1, title: "Todo 1", completed: false, author: 1 },
-   { id: 2, title: "Todo 2", completed: true, author: 1 },
-   { id: 3, title: "Todo 3", completed: false, author: 2 },
+   { id: 1, title: "Todo 1", completed: false, userId: 1 },
+   { id: 2, title: "Todo 2", completed: true, userId: 1 },
+   { id: 3, title: "Todo 3", completed: false, userId: 2 },
 ];

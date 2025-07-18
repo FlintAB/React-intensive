@@ -1,32 +1,31 @@
 import { useParams } from 'react-router-dom';
 import { PostCard } from '../../../entities/post/ui/PostCard';
-import { useMockData } from '../../../features/PostList/model/hooks/usePosts';
+import { useGetPostsByUserQuery } from '../../../entities/post/api/postApi';
 
 
 export const UserPostsPage = () => {
    const { id } = useParams<{ id: string }>();
 
-   const { getPostsByAuthor, isLoading, error } = useMockData();
-   const userPosts = id ? getPostsByAuthor(id) : [];
+   const {data: posts, isLoading, error} = useGetPostsByUserQuery(Number(id));
 
    if (isLoading) return <div>Загрузка...</div>;
-   if (error) return <div>{error}</div>;
+   if (error) return <div>Ошибка при получении постов автора</div>;
 
    return (
       <div>
          <h2>Посты пользователя #{id}</h2>
-      
-         <ol>
-         {userPosts.length > 0 ? (
-         userPosts.map(post => (
-            <li key={post.id}>
+
+         {posts?.length ? (
+            <ol>
+            {posts.map(post => (
+               <li key={post.id}>
                <PostCard {...post} />
-            </li>
-         ))
-         ) : (
-         <p>У этого пользователя нет постов</p>
-         )}
+               </li>
+            ))}
          </ol>
+         ) : (
+            <p>У этого пользователя нет постов</p>
+         )}
       </div>
    );
 };
