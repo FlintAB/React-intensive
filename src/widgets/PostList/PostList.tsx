@@ -8,16 +8,20 @@ type PostListProps = {
    isLoading?: boolean;
 }
 
+const MOCK_COMMENTS = [
+   {
+      id: "1",
+      text: "Пример комментария"
+   }
+];
+
 const PostListComponent: FC<PostListProps> = ({ posts }) => {
    return (
       <ul>
          {posts.map((post) => (
          <li key={post.id}>
             <PostCard {...post}/>
-            <CommentList comments={[{
-               text: 'Пример комментария',
-               id: ""
-            }]}/>
+            <CommentList comments={MOCK_COMMENTS}/>
          </li>
          ))}
       </ul>

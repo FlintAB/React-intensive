@@ -10,7 +10,7 @@ type PostLengthFilterProps = {
 }
 
 export const PostLengthFilter: FC<PostLengthFilterProps> = ({ posts, onFilter }) => {
-   const [maxLength, setMaxLength] = useState(6);
+   const [maxLength, setMaxLength] = useState(1);
 
    const handleFilter = () => {
       const filtered = filterByLength(posts, maxLength);
