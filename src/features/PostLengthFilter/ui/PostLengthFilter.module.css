@@ -32,3 +32,19 @@
    border-radius: 4px;
    cursor: pointer;
 }
+
+.rangeInputs {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   margin-top: 4px;
+}
+
+.rangeInputs input {
+   width: 60px;
+   padding: 4px;
+}
+
+.rangeInputs span {
+   color: #666;
+}
