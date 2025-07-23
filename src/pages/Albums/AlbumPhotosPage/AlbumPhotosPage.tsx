@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
-import styles from './AlbumPhotosPage.module.css';
 import { Link } from 'react-router-dom';
 import { useMockData } from '../../../features/PostList/model/hooks/usePosts';
+import styles from '../AlbumPhotosPage/AlbumPhotospage.module.css';
 
 export const AlbumPhotosPage = () => {
    const { id } = useParams<{ id: string }>();

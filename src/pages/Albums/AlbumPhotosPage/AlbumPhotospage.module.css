@@ -17,7 +17,7 @@
 }
 
 .photoCard {
-   border: 1px solid #ddd;
+   border: 1px solid var(--accent-color);
    padding: 15px;
    border-radius: 8px;
    transition: transform 0.2s;

@@ -1,12 +1,12 @@
 import { useState, type FC } from 'react';
 import { filterByLength } from '../lib/filterByLength';
-import type { PostCardProps } from '../../../entities/post/ui/PostCard';
 import { Button } from '../../../shared/ui/Button/Button';
 import styles from './PostLengthFilter.module.css';
+import type { Post } from '../../../shared/types/post';
 
 type PostLengthFilterProps = {
-   posts: PostCardProps[];
-   onFilter: (arg: PostCardProps[]) => void;
+   posts: Post[];
+   onFilter: (arg: Post[]) => void;
 }
 
 export const PostLengthFilter: FC<PostLengthFilterProps> = ({ posts, onFilter }) => {
