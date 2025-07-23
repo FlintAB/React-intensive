@@ -1,9 +1,8 @@
 import { useParams } from 'react-router-dom';
-import styles from './AlbumPhotosPage.module.css';
 import { Link } from 'react-router-dom';
 import { useGetPhotoByAlbumQuery } from '../../../entities/photo/api/photoApi';
 import { useGetAlbumByIdQuery } from '../../../entities/album/api/albumApi';
-
+import styles from '../AlbumPhotosPage/AlbumPhotospage.module.css';
 
 export const AlbumPhotosPage = () => {
    const { id } = useParams<{ id: string }>();
