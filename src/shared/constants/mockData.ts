@@ -1,6 +1,7 @@
-import type { Album, AlbumPhoto } from "../types/album";
-import type { Post } from "../types/post";
-import type { Todo } from "../types/todo";
+import type { Album, AlbumPhoto } from "../../entities/album/model/types";
+import type { Post } from "../../entities/post/model/types";
+import type { Todo } from "../../entities/todo/model/types";
+
 
 export const mockPosts: Post[] = [
    { id: 1, title: "Заголовок", body: "Content 1", userId: 1 },

@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
 import styles from './UserTodosPage.module.css';
 import { useGetTodosByUserQuery } from '../../../entities/todo/api/todoApi';
+import type { FC } from 'react';
 
-export const UserTodosPage = () => {
+export const UserTodosPage: FC = () => {
    const { id } = useParams<{ id: string }>();
    const { data: todos, isLoading, error } = useGetTodosByUserQuery(Number(id));
 

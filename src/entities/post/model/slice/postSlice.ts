@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import type { Post } from "../../../../shared/types/post";
+import type { Post } from "../types";
 
 const postAdapter = createEntityAdapter<Post>({
    sortComparer: (a, b) => a.title.localeCompare(b.title),

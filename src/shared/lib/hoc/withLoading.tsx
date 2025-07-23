@@ -1,11 +1,11 @@
 import { type FC } from 'react';
 
-export const withLoading = <P extends object>(
-   Component: FC<P>,
+export const withLoading = <T extends object>(
+   Component: FC<T>,
    LoadingComponent: FC = () => <div>Loading...</div>
 ) => {
-   const WithLoading: FC<P & { isLoading?: boolean }> = ({ isLoading, ...props }) => {
-      return isLoading ? <LoadingComponent /> : <Component {...(props as P)} />;
+   const WithLoading: FC<T & { isLoading?: boolean }> = ({ isLoading, ...props }) => {
+      return isLoading ? <LoadingComponent /> : <Component {...(props as T)} />;
    };
 
    return WithLoading;

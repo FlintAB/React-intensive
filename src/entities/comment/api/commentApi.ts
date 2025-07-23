@@ -1,5 +1,5 @@
 import { baseApi } from "../../../shared/api/baseApi";
-import type { Comment } from "../../../shared/types/comment";
+import type { Comment } from "../model/types";
 
 export const commentsApi = baseApi.injectEndpoints({
    endpoints: (build) => ({

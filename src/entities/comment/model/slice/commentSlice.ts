@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import type { Comment } from "../../../../shared/types/comment";
+import type { Comment } from "../types";
 
 const commentAdapter = createEntityAdapter<Comment>({
    sortComparer: (a, b) => a.name.localeCompare(b.name),

@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import type { Photo } from "../../../../shared/types/photo";
+import type { Photo } from "../types"; 
 
 
 const photoAdapter = createEntityAdapter<Photo>({

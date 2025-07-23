@@ -1,4 +1,4 @@
-import type { Post } from "../../../shared/types/post";
+import type { Post } from "../../../entities/post/model/types";
 
 export const filterByLength = (posts: Post[], maxLength: number) => {
    return posts.filter(post => 

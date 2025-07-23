@@ -2,7 +2,7 @@ import { useState, type FC } from 'react';
 import { filterByLength } from '../lib/filterByLength';
 import { Button } from '../../../shared/ui/Button/Button';
 import styles from './PostLengthFilter.module.css';
-import type { Post } from '../../../shared/types/post';
+import type { Post } from '../../../entities/post/model/types'; 
 
 type PostLengthFilterProps = {
    posts: Post[];
@@ -17,6 +17,16 @@ export const PostLengthFilter: FC<PostLengthFilterProps> = ({ posts, onFilter })
       onFilter(filtered);
    };
 
+   const handleMinLengthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setMaxLength(Number(e.target.value));
+   };
+   
+   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+         handleFilter();
+      }
+   };
+
    return (
       <div className={styles.container}>
          <div className={styles.controls}>
@@ -27,8 +37,8 @@ export const PostLengthFilter: FC<PostLengthFilterProps> = ({ posts, onFilter })
                type="number"
                min="1"
                value={maxLength}
-               onChange={(e) => setMaxLength(Number(e.target.value))}
-               onKeyUp={(e) => e.key === 'Enter' && handleFilter()}
+               onChange={handleMinLengthChange}
+               onKeyUp={handleKeyUp}
             />
             </label>
 

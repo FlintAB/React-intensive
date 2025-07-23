@@ -1,11 +1,12 @@
-import type { ReactNode } from "react";
+import type { PropsWithChildren } from "react";
 
 type ButtonProps = {
    onClick: () => void;
-   children?: ReactNode;
 }
 
-export const Button = ({ onClick, children }: ButtonProps) => {
+export const Button = (props: PropsWithChildren<ButtonProps>) => {
+   const { onClick, children } = props;
+
    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
       onClick();

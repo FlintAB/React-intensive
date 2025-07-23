@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { PostCard } from '../../../entities/post/ui/PostCard';
 import { useGetPostsByUserQuery } from '../../../entities/post/api/postApi';
+import type { FC } from 'react';
 
-
-export const UserPostsPage = () => {
+export const UserPostsPage: FC = () => {
    const { id } = useParams<{ id: string }>();
 
    const {data: posts, isLoading, error} = useGetPostsByUserQuery(Number(id));

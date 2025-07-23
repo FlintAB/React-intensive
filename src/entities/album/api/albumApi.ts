@@ -1,5 +1,5 @@
 import { baseApi } from "../../../shared/api/baseApi";
-import type { Album } from "../../../shared/types/album";
+import type { Album } from "../model/types";
 
 export const albumsApi = baseApi.injectEndpoints({
    endpoints: (build) => ({

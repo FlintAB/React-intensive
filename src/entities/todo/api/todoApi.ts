@@ -1,5 +1,5 @@
 import { baseApi } from "../../../shared/api/baseApi";
-import type { Todo } from "../../../shared/types/todo";
+import type { Todo } from "../model/types"; 
 
 
 export const todosApi = baseApi.injectEndpoints({

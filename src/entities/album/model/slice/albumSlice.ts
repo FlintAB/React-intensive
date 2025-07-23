@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import type { Album } from "../../../../shared/types/album";
+import type { Album } from "../types";
 
 const albumAdapter = createEntityAdapter<Album>({
    sortComparer: (a, b) => a.title.localeCompare(b.title),

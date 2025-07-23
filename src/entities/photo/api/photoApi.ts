@@ -1,5 +1,5 @@
 import { baseApi } from "../../../shared/api/baseApi";
-import type { Photo } from "../../../shared/types/photo";
+import type { Photo } from "../model/types"; 
 
 export const photosApi = baseApi.injectEndpoints({
    endpoints: (build) => ({

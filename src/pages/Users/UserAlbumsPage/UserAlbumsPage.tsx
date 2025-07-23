@@ -1,8 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
 import styles from './UserAlbumsPage.module.css';
 import { useGetAlbumByUserQuery } from '../../../entities/album/api/albumApi';
+import type { FC } from 'react';
 
-export const UserAlbumsPage = () => {
+export const UserAlbumsPage: FC = () => {
    const { id } = useParams<{ id: string }>();
    const {data: albums, isLoading, error} = useGetAlbumByUserQuery(Number(id));
 

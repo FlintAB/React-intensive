@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./PostCard.module.css";
-import type { Post } from "../../../shared/types/post";
+import type { Post } from "../model/types";
 import { CommentList } from "../../../widgets/CommentList/ui/CommentList";
 
 

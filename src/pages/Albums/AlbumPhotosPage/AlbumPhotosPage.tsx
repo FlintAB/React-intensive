@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { useGetPhotoByAlbumQuery } from '../../../entities/photo/api/photoApi';
 import { useGetAlbumByIdQuery } from '../../../entities/album/api/albumApi';
 import styles from '../AlbumPhotosPage/AlbumPhotospage.module.css';
+import type { FC } from 'react';
 
-export const AlbumPhotosPage = () => {
+export const AlbumPhotosPage: FC = () => {
    const { id } = useParams<{ id: string }>();
    const {data: photos, isLoading, error} = useGetPhotoByAlbumQuery(Number(id));
    const {data: album} = useGetAlbumByIdQuery(Number(id));
