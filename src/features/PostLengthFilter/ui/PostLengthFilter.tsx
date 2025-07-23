@@ -18,6 +18,20 @@ export const PostLengthFilter: FC<PostLengthFilterProps> = ({ posts, onFilter })
       onFilter(filtered);
    };
 
+   const handleMinLengthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setMinLength(Number(e.target.value));
+   };
+
+   const handleMaxLengthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setMaxLength(Number(e.target.value));
+   };
+
+   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+         handleFilter();
+      }
+   };
+
    return (
       <div className={styles.container}>
          <div className={styles.controls}>
@@ -30,8 +44,8 @@ export const PostLengthFilter: FC<PostLengthFilterProps> = ({ posts, onFilter })
                      min="1"
                      placeholder="От"
                      value={minLength}
-                     onChange={(e) => setMinLength(Number(e.target.value))}
-                     onKeyUp={(e) => e.key === 'Enter' && handleFilter()}
+                     onChange={handleMinLengthChange}
+                     onKeyUp={handleKeyUp}
                   />
                   <span>-</span>
                   <input
@@ -39,8 +53,8 @@ export const PostLengthFilter: FC<PostLengthFilterProps> = ({ posts, onFilter })
                      min={minLength}
                      placeholder="До"
                      value={maxLength}
-                     onChange={(e) => setMaxLength(Number(e.target.value))}
-                     onKeyUp={(e) => e.key === 'Enter' && handleFilter()}
+                     onChange={handleMaxLengthChange}
+                     onKeyUp={handleKeyUp}
                   />
                </div>
             </label>
