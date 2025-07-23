@@ -1,15 +1,18 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, type PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.css';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 import { useTheme } from '../../lib/theme/useTheme';
 
 type ModalProps = {
    isOpen: boolean;
    onClose: () => void;
-   children?: ReactNode;
 }
 
-export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+export const Modal = (props: PropsWithChildren<ModalProps>) => {
+   const { isOpen, onClose, children } = props;
    const { theme } = useTheme();
 
    useEffect(() => {
@@ -39,3 +42,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
       portalRoot,
    );
 };
+
+Modal.Header = Header;
+Modal.Body = Body;
+Modal.Footer = Footer;

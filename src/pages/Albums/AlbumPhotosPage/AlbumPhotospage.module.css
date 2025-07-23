@@ -1,0 +1,63 @@
+.container {
+   padding: 20px;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.authorInfo {
+   color: var(--accent-color);
+   margin-bottom: 20px;
+}
+
+.photosGrid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+   gap: 20px;
+   margin: 20px 0;
+}
+
+.photoCard {
+   border: 1px solid var(--accent-color);
+   padding: 15px;
+   border-radius: 8px;
+   transition: transform 0.2s;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.photoCard:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail {
+   width: 100%;
+   height: auto;
+   border-radius: 4px;
+   margin-bottom: 10px;
+}
+
+.fullSizeLink {
+   margin-top: auto;
+   color: #3498db;
+   text-decoration: none;
+   font-size: 0.9rem;
+}
+
+.fullSizeLink:hover {
+   text-decoration: underline;
+}
+
+.backLink {
+   margin-top: 30px;
+}
+
+.backLink a {
+   color: #3498db;
+   text-decoration: none;
+}
+
+.backLink a:hover {
+   text-decoration: underline;
+}
