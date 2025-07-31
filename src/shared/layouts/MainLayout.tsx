@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react"
-import { LayoutFooter } from "../../widgets/LayoutFooter/Footer"
-import { LayoutHeader } from "../../widgets/LayoutHeader/Header"
+import { LayoutFooter } from "../../widgets/LayoutFooter/ui/Footer"
+import { LayoutHeader } from "../../widgets/LayoutHeader/ui/Header"
 
 type MainLayoutProps = {
    children?: ReactNode;
